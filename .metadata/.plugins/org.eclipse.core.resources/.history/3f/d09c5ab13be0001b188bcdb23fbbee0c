@@ -1,0 +1,31 @@
+package com.example.kang.web;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.kang.domain.book.Book;
+import com.example.kang.service.BookService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Controller
+public class BookController {
+
+	private final BookService bookService;
+	
+	
+	
+	@GetMapping("book/findAll")
+	public @ResponseBody List<Book> findAll(){
+		
+		
+			
+		return bookService.findAll();	
+	}
+	
+	
+}

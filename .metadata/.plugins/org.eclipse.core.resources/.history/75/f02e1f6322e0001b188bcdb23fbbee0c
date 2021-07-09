@@ -1,0 +1,17 @@
+package com.example.kang.repository;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.kang.domain.document.Document;
+
+@Mapper
+public interface DoumentRepository {
+
+	public void insertAll(List<Document> documents);
+	public void deleteById(int id);
+	public List<Document> findAll();
+	public Document findById(int id);	
+	
+}
