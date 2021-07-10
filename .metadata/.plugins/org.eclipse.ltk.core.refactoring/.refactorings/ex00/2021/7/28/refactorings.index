@@ -10,3 +10,13 @@
 1625772491869	Move compilation unit
 1625772591946	Rename type 'DoumentRepository'
 1625772603877	Rename resource 'document.xml'
+1625812327780	Rename resource 'index.html'
+1625812419023	Move file
+1625813197412	Rename resource 'booklist.html'
+1625813231157	Rename resource 'booklist.jsp'
+1625915899146	Copy file
+1625918395572	Rename resource 'includs'
+1625919483328	Delete element
+1625920281273	Rename resource 'styles.css'
+1625920288457	Rename resource 'styles.scss'
+1625926052502	Rename type 'MNullException'

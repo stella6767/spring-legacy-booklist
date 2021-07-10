@@ -47,23 +47,23 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping(value="/api/insert/{page}", produces="application/json;charset=UTF-8", method=RequestMethod.GET)
-	public @ResponseBody String insertApiData(@PathVariable int page) {
-		
-		
-		log.info("api insert " + page);
-		
-		List<Document> documents = BookApiTest.getApi(page);
-		
-		if(documents != null) {
-			bookService.insertAll(documents);
+		@RequestMapping(value="/api/insert/{page}", produces="application/json;charset=UTF-8", method=RequestMethod.GET)
+		public @ResponseBody String insertApiData(@PathVariable int page) {
 			
-			return "성공";
+			
+			log.info("api insert " + page);
+			
+			List<Document> documents = BookApiTest.getApi(page);
+			
+			if(documents != null) {
+				bookService.insertAll(documents);
+				
+				return "성공";
+			}
+			
+			
+			return "실패!";
 		}
-		
-		
-		return "실패!";
-	}
 	
 	
 	

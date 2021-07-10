@@ -26,9 +26,24 @@ public class BookService {
 		
 		List<Book> books = bookRepository.findAll();
 		
-		
 		return books;
 	}
+	
+	
+	public Book findById(int id) {
+		
+		Book bookEntity = bookRepository.findById(id);
+		
+		if(bookEntity != null) {
+			log.info(bookEntity.toString());
+			
+			return bookEntity;
+		}
+		
+		return null;
+	}
+	
+	
 	
 	
 	public void insertAll(List<Document> documents) {

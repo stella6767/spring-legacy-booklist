@@ -46,6 +46,8 @@
 	<context:component-scan
 		base-package="com.example.kang.web" />
 
+	<context:component-scan
+		base-package="com.example.kang.handler" />
 
 
 </beans>

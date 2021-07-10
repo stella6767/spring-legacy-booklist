@@ -1,0 +1,22 @@
+package com.example.kang.handler;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.kang.handler.customException.MyNullException;
+import com.example.kang.utils.Script;
+
+@RestController //데이터를 리턴하기 위해서
+@ControllerAdvice //모든 익셉션을 낚아챔.
+public class GlobalExceptionHandler {
+
+	
+	@ExceptionHandler(value = MyNullException.class)
+	public String myAuthenticationException(Exception e){
+		
+		return Script.back("찾을려는 데이터가 없습니다.");
+	}
+	
+	
+}

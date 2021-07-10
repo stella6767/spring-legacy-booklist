@@ -1,0 +1,37 @@
+package com.example.kang.utils;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
+public class Script {
+
+	public static String href(String url) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<script>");
+		sb.append("location.href = '" + url + "';");
+		sb.append("</script>");
+		return sb.toString();
+	}
+
+	public static void back(HttpServletResponse resp, String msg)  throws IOException {
+
+		resp.setContentType("text/html; charset=utf-8"); // 한글깨짐 방지..
+
+		PrintWriter out;
+
+		try {
+			out = resp.getWriter();
+			out.println("<script>");
+			out.println("alert('" + msg + "')");
+			out.println("history.back();");
+			out.println("</script>");
+			out.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

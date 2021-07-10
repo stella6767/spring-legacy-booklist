@@ -2,14 +2,20 @@ package com.example.kang.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.kang.domain.book.Book;
+import com.example.kang.handler.customException.MyNullException;
 import com.example.kang.service.BookService;
+import com.example.kang.utils.Script;
 
 import lombok.RequiredArgsConstructor;
 
@@ -30,5 +36,39 @@ public class BookController {
 		return bookService.findAll();	
 	}
 	
+	
+	@GetMapping("book/list")
+	public String list(Model model) {
+		
+		log.info("전체 리스트");	
+		
+		List<Book> books = bookService.findAll();
+		model.addAttribute("books",books);
+		
+		
+		return "booklist";
+	}
+	
+	
+	@GetMapping("book/item/{id}")
+	public String item(Model model, @PathVariable int id, HttpServletResponse resp) {
+		
+		log.info("상세보기 " + id);	
+		
+		Book book = bookService.findById(id);
+		
+		if(book == null) {
+			throw new MyNullException();
+		}
+		
+		
+		model.addAttribute("book", book);
+	
+		return "bookitem";
+	}
+	
+	
+
+		
 	
 }
