@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.kang.repository.BookRepository">
+	<insert id="save">
+		INSERT INTO
+		book(id, author, contents, datetime, isbn, price, publisher, salePrice,
+		status, thumbnail, title, translator, url)
+		VALUES(book_seq.nextval,
+		#{author},#{contents},#{datetime},#{isbn},#{price},#{publisher},#{salePrice},#{status},#{thumbnail},#{title},#{translator},
+		#{url})
+	</insert>
+
+	<delete id="deleteById">
+		DELETE FROM product WHERE id = #{id}
+	</delete>
+
+
+	<select id="findAll"
+		resultType="com.example.kang.domain.book.Book">
+		<![CDATA[
+		select * from book order by id desc 
+		]]>
+	</select>
+
+
+	<select id="findById"
+		resultType="com.example.kang.domain.book.Book">
+		<![CDATA[
+		select * from book where id=#{id} 
+		]]>
+	</select>
+
+
+</mapper>

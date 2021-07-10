@@ -10,6 +10,13 @@
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!-- config params as the following -->
+			<property name="helperDialect" value="oracle" />
+			
+		</plugin>
+	</plugins>
 
 </configuration>
 

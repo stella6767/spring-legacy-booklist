@@ -60,6 +60,8 @@
 			ref="sqlSessionFactory" />
 	</bean>
 
+	
+	<tx:annotation-driven/>
 
 	<mybatis-spring:scan
 		base-package="com.example.kang.repository" />

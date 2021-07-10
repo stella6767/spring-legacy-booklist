@@ -5,10 +5,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.kang.domain.book.Book;
 import com.example.kang.domain.kakaoapi.Document;
 import com.example.kang.repository.BookRepository;
+import com.github.pagehelper.Page;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +22,22 @@ public class BookService {
 
 	private final BookRepository bookRepository;
 	
+	
+	@Transactional(readOnly = true)
+	public Page<Book> pageTest(){
+		
+		Page<Book> books = bookRepository.pageTest();
+		
+		return books;
+	}
+	
+	
+	public Book save(Book book) {
+		
+		Book bookEntity = bookRepository.save(book);
+		
+		return book;
+	}
 	
 	
 	public List<Book> findAll(){

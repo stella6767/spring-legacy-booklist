@@ -20,3 +20,6 @@
 1625920281273	Rename resource 'styles.css'
 1625920288457	Rename resource 'styles.scss'
 1625926052502	Rename type 'MNullException'
+1625951095295	Rename package 'com.example.kang.service'
+1625951107005	Rename type 'BookServiceUnitTest'
+1625951726003	Rename package 'com.example.kang.repository'

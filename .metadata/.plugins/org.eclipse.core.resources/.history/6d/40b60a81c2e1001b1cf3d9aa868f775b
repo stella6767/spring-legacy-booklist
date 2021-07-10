@@ -1,0 +1,40 @@
+package com.example.kang.repository;
+
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+
+import com.example.kang.domain.book.Book;
+import com.example.kang.repository.BookRepository;
+import com.example.kang.service.BookService;
+import com.github.pagehelper.Page;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class BookServiceUnitTest {
+
+	
+	@InjectMocks//BookService 객체가 만들어질 때 BookServiceUnitTest(해당 파일)에 @Mock로 등록된 모든 애들을 주입받는다.
+	private BookService bookService;
+
+	
+	@Mock
+	private BookRepository bookRepository;
+	
+	
+	@Test
+	public void page_test() {
+		
+		Page<Book> books = bookRepository.pageTest();
+		
+		when(bookRepository.pageTest()).thenReturn();	
+	
+
+		
+		log.info("결과: " + books);
+		
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package com.example.kang.service;
+
+import org.junit.Test;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class BookServiceUnitTest {
+
+	
+	@Test
+	public void page_test() {
+		
+		
+	}
+	
+	
+}

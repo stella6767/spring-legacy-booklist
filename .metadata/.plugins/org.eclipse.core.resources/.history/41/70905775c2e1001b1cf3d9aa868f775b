@@ -1,0 +1,29 @@
+package com.example.kang.service;
+
+import org.junit.Test;
+import org.mockito.Mock;
+
+import com.example.kang.domain.book.Book;
+import com.example.kang.repository.BookRepository;
+import com.github.pagehelper.Page;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class BookServiceUnitTest {
+
+	@Mock
+	private BookRepository bookRepository;
+	
+	
+	@Test
+	public void page_test() {
+		
+		Page<Book> books = bookRepository.pageTest();
+		
+		log.info("결과: " + books);
+		
+	}
+	
+	
+}
