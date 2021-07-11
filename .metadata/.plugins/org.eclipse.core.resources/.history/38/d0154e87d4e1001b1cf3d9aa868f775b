@@ -1,0 +1,102 @@
+package com.example.kang.service;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.kang.domain.book.Book;
+import com.example.kang.domain.kakaoapi.Document;
+import com.example.kang.repository.BookRepository;
+import com.github.pagehelper.Page;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class BookService {
+
+	private static final Logger log = LoggerFactory.getLogger(BookService.class);
+
+	private final BookRepository bookRepository;
+	
+	
+	@Transactional(readOnly = true)
+	public Page<Book> pageTest(){
+		
+		Page<Book> books = bookRepository.pageTest();
+		
+		return books;
+	}
+	
+	
+	public Book save(Book book) {
+		
+		Book bookEntity = bookRepository.save(book);
+		
+		return book;
+	}
+	
+	
+	public List<Book> findAll(){
+		
+		List<Book> books = bookRepository.findAll();
+		
+		return books;
+	}
+	
+	
+	public Book findById(int id) {
+		
+		Book bookEntity = bookRepository.findById(id);
+		
+		if(bookEntity != null) {
+			log.info(bookEntity.toString());
+			
+			return bookEntity;
+		}
+		
+		return null;
+	}
+	
+	
+	
+	
+	public void insertAll(List<Document> documents) {
+		
+		
+		log.info("insertAll 서비스 들어옴");
+				
+		for (Document document : documents) {
+						
+			log.info("document: " + document.toString());
+			
+			Book book = Book.builder()
+				.author(document.getAuthors().isEmpty() ? " ":  document.getAuthors().get(0) )
+				.contents(document.getContents())
+				.datetime(document.getDatetime())
+				.isbn(document.getIsbn())
+				.price(document.getPrice())
+				.publisher(document.getPublisher())
+				.salePrice(document.getSalePrice())
+				.url(document.getUrl())
+				.translator(document.getTranslators().isEmpty() ? "": document.getTranslators().get(0) )
+				.thumbnail(document.getThumbnail())
+				.status(document.getStatus())
+				.title(document.getTitle())
+				.build();
+				
+			
+			log.info(book.toString());
+			
+			//bookRepository.save(book);
+			
+			
+		}
+		
+	}
+	
+	
+}

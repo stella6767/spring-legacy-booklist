@@ -14,7 +14,7 @@ public class CharFilter implements Filter { //web.xml에서 읽을 수 있게
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("charFilter");
+		//System.out.println("charFilter");
 		
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");

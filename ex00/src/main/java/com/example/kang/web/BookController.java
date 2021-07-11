@@ -16,6 +16,7 @@ import com.example.kang.domain.book.Book;
 import com.example.kang.handler.customException.MyNullException;
 import com.example.kang.service.BookService;
 import com.example.kang.utils.Script;
+import com.github.pagehelper.Page;
 
 import lombok.RequiredArgsConstructor;
 
@@ -48,6 +49,29 @@ public class BookController {
 		
 		return "booklist";
 	}
+	
+	
+	@GetMapping("book/list2")
+	public @ResponseBody Page<Book> list2(int page) {
+		
+		log.info("스크롤 리스트");	
+		
+		Page<Book> pages = bookService.pageTest(page);
+		
+		//신기하게 pages 안에 books 배열만 리턴하네..		
+		return pages;
+	}
+	
+	
+	@GetMapping("book/list22")
+	public String mainlist() {
+		
+		log.info("mainpage");
+		
+		return "booklist2";
+		
+	}
+	
 	
 	
 	@GetMapping("book/item/{id}")

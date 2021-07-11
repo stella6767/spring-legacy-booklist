@@ -38,13 +38,11 @@ public class BookServiceUnitTest {
 	}
 	
 	
-	@Test
-	public void pageTest() {
-		
-		Page<Book> books = bookService.pageTest();
-		
-		log.info(books);
-	}
+//	@Test
+//	public void pageTest() {
+//		Page<Book> books = bookService.pageTest();
+//		log.info(books);
+//	}
 	
 	@Test
 	public void selectAllPaging() {

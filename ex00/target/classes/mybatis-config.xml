@@ -14,7 +14,8 @@
 		<plugin interceptor="com.github.pagehelper.PageInterceptor">
 			<!-- config params as the following -->
 			<property name="helperDialect" value="oracle" />
-			
+<!-- 			<property name="reasonable" value="true" />
+ -->			
 		</plugin>
 	</plugins>
 

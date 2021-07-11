@@ -62,3 +62,7 @@
 
 
 <%@include file="../views/includes/footer.jsp"%>
+
+ </body>
+</html>
+    

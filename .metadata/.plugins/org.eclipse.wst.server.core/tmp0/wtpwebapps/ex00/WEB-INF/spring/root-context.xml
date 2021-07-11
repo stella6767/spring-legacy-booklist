@@ -16,15 +16,15 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
-	<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property> -->
-			
-			<property name="driverClassName"
+		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
+			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property> -->
+
+		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-			
-					<property name="jdbcUrl"
+
+		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
-			
+
 		<property name="username" value="kang"></property>
 		<property name="password" value="1234"></property>
 
@@ -41,14 +41,31 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		
-		    <!-- 런타임 시 SqlSessionFactory에 MyBatis mapper 파일들의 경로가 설정된다. -->
+
+		<!-- 런타임 시 SqlSessionFactory에 MyBatis mapper 파일들의 경로가 설정된다. -->
 		<property name="mapperLocations"
 			value="classpath:mapper/*.xml" />
 
 		<!-- mybatis-config.xml이 스프링 시작될때 같이 실행되도록 설정하기 -->
 		<property name="configLocation"
 			value="classpath:/mybatis-config.xml"></property>
+
+
+<!-- 		<property name="typeAliasesPackage"
+			value="com.isea533.mybatis.model" />
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置
+					<property name="properties">
+						<value>
+							helperDialect=oracle
+							reasonable=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property> -->
 
 	</bean>
 
@@ -60,8 +77,8 @@
 			ref="sqlSessionFactory" />
 	</bean>
 
-	
-	<tx:annotation-driven/>
+
+	<tx:annotation-driven />
 
 	<mybatis-spring:scan
 		base-package="com.example.kang.repository" />
