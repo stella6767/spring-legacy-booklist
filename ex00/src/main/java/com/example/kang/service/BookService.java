@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.kang.domain.book.Book;
 import com.example.kang.domain.kakaoapi.Document;
@@ -23,18 +24,18 @@ public class BookService {
 	private final BookRepository bookRepository;
 	
 	
-	//@Transactional(readOnly = true) //JPA와는 좀 다르게 적용해야 될 듯..
-	public Page<Book> pageTest(int pageNo){
+	//@Transactional  //안 됨...
+	public Page<Book> findByPage(int pageNo){
 		
 		PageHelper.startPage(pageNo, 20); 
-		Page<Book> books = bookRepository.pageTest();
+		Page<Book> books = bookRepository.findByPage();
 		
 		return books;
 	}
 	
 	
+	
 	public Book save(Book book) {
-		
 		Book bookEntity = bookRepository.save(book);
 		
 		return book;

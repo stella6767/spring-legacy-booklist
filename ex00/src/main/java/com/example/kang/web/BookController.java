@@ -38,38 +38,25 @@ public class BookController {
 	}
 	
 	
-	@GetMapping("book/list")
-	public String list(Model model) {
-		
-		log.info("전체 리스트");	
-		
-		List<Book> books = bookService.findAll();
-		model.addAttribute("books",books);
-		
-		
-		return "booklist";
-	}
 	
-	
-	@GetMapping("book/list2")
-	public @ResponseBody Page<Book> list2(int page) {
+	@GetMapping("book/paging")
+	public @ResponseBody Page<Book> findByPage(int page) {
 		
 		log.info("스크롤 리스트");	
 		
-		Page<Book> pages = bookService.pageTest(page);
+		Page<Book> pages = bookService.findByPage(page);
 		
 		//신기하게 pages 안에 books 배열만 리턴하네..		
 		return pages;
 	}
 	
 	
-	@GetMapping("book/list22")
-	public String mainlist() {
+	@GetMapping("book/list")
+	public String booklist() {
 		
-		log.info("mainpage");
+		log.info("booklist page");
 		
-		return "booklist2";
-		
+		return "booklist";	
 	}
 	
 	

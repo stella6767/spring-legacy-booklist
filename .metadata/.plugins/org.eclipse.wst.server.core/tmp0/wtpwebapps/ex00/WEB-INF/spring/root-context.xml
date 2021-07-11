@@ -51,22 +51,6 @@
 			value="classpath:/mybatis-config.xml"></property>
 
 
-<!-- 		<property name="typeAliasesPackage"
-			value="com.isea533.mybatis.model" />
-		<property name="plugins">
-			<array>
-				<bean class="com.github.pagehelper.PageInterceptor">
-					这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置
-					<property name="properties">
-						<value>
-							helperDialect=oracle
-							reasonable=true
-						</value>
-					</property>
-				</bean>
-			</array>
-		</property> -->
-
 	</bean>
 
 
@@ -78,7 +62,13 @@
 	</bean>
 
 
-	<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" proxy-target-class="true" />
 
 	<mybatis-spring:scan
 		base-package="com.example.kang.repository" />
@@ -88,6 +78,11 @@
 
 	<context:component-scan
 		base-package="com.example.kang.service" />
+
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+	<task:annotation-driven />
 
 
 </beans>

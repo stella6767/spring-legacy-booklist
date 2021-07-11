@@ -28,7 +28,8 @@
 	</select>
 
 
-	<select id="pageTest"
+
+	<select id="findByPage"
 		resultType="com.example.kang.domain.book.Book">
 		<![CDATA[
 		select * from book order by id desc 

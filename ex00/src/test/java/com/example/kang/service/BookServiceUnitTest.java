@@ -49,25 +49,16 @@ public class BookServiceUnitTest {
 	    int perPage = 10;
 	    // 몇 페이지에 대한 조회인지 설정 후 조회
 	    PageHelper.startPage(1, perPage);
-	    Page<Book> p = bookRepository.pageTest();
+	    Page<Book> p = bookRepository.findByPage();
 	    //log.info("1 page: {}", p);
 	    log.info("1page: " + p);
 	    
 	    PageHelper.startPage(2, perPage);
-	    p =  bookRepository.pageTest();
+	    p =  bookRepository.findByPage();
 	    //log.info("2 page: {}", p);
 	    log.info("2page: " + p);
-	    
-	    
-	    PageHelper.startPage(10, perPage);
-	    p =  bookRepository.pageTest();
-	    log.info("10page: " + p);
-	    
-	    PageHelper.startPage(11, perPage);
-	    p =  bookRepository.pageTest();
-	    log.info("11page: " + p);   
 	   
-//	    
+	  
 //	    PageInfo<Book> books = new PageInfo<Book>(p);
 //	    log.info("pageInfo: "+books);
 	}

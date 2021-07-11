@@ -11,7 +11,7 @@ function booksLoad() {
 
 	$.ajax({
 		type: "get",
-		url: `/book/list2?page=${page}`,
+		url: `/book/paging?page=${page}`,
 		dateType: "json"
 
 	}).done(res => {

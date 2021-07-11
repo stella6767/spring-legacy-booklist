@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BookServiceUnitTest" project="ex00" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.example.kang.service.BookServiceUnitTest" time="0.693">
-    <testcase name="testExist" classname="com.example.kang.service.BookServiceUnitTest" time="0.0"/>
-    <testcase name="selectAllPaging" classname="com.example.kang.service.BookServiceUnitTest" time="0.549"/>
-    <testcase name="pageTest" classname="com.example.kang.service.BookServiceUnitTest" time="0.144"/>
-  </testsuite>
-</testrun>
